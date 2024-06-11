@@ -35,6 +35,5 @@ Aqui vem um passo a passo para abrir e rodar o projeto.
 
 ## Running integration tests 
 
-flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart (mais antigo, mas mais recomendado para rodar no Chrome)
-ou 
-flutter test integration_test
+- flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart (mais antigo, mas mais recomendado para rodar no Chrome)
+- flutter test integration_test
