@@ -97,7 +97,7 @@ class _HomeFormWidgetState extends State<HomeFormWidget> {
                 ImageConstants.shoppingBags,
                 height: 140,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 40),
             ],
           ),
         ),
