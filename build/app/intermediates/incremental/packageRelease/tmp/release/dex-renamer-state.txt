@@ -1,0 +1,4 @@
+#Tue Jun 18 17:42:49 BRT 2024
+base.0=/Users/vitorthomaz/Desktop/Projetos/Flutter_Projects/Flutter_app_CI_Practice/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
