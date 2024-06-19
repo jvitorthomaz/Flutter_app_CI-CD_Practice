@@ -16,22 +16,21 @@ if (flutterVersionCode == null) {
     flutterVersionCode = '1'
 }
 
-
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
-
-def buildNumber = flutterVersionCode.toInteger()
-def (major, minor, patch) = flutterVersionName.tokenize('.')
-
-def calculatedBuildVersion = major.toInteger() * 100000 + minor.toInteger() * 10000 + patch.toInteger() * 100 + buildNumber 
 
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
+
+def buildNumber = flutterVersionCode.toInteger()
+def (major, minor, patch) = flutterVersionName.tokenize('.')
+
+def calculatedBuildVersion = major.toInteger() * 100000 + minor.toInteger() * 10000 + patch.toInteger() * 100 + buildNumber 
 
 
 apply plugin: 'com.android.application'
@@ -69,28 +68,22 @@ android {
 
     signingConfigs {
         release {
-            if (System.getenv()["CI"]) {
+            if (System.getenv()["CI"]) { // CI=true is exported by Codemagic
                 storeFile file(System.getenv()["CM_KEYSTORE_PATH"])
                 storePassword System.getenv()["CM_KEYSTORE_PASSWORD"]
                 keyAlias System.getenv()["CM_KEY_ALIAS"]
                 keyPassword System.getenv()["CM_KEY_PASSWORD"]
-
-
             } else {
                 keyAlias keystoreProperties['keyAlias']
                 keyPassword keystoreProperties['keyPassword']
                 storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
                 storePassword keystoreProperties['storePassword']
             }
-
         }
     }
 
-
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.release
         }
     }
