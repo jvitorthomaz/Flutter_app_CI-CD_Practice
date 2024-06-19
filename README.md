@@ -32,8 +32,3 @@ Aqui vem um passo a passo para abrir e rodar o projeto.
 - Procure o local onde o projeto está e o selecione (Caso o projeto seja baixado via zip, é necessário extraí-lo antes de procurá-lo)
 - Por fim clique em OK
 - Depois basta rodar o comando `flutter run` na pasta do projeto
-
-## Running integration tests 
-
-- flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart (mais antigo, mas mais recomendado para rodar no Chrome)
-- flutter test integration_test
